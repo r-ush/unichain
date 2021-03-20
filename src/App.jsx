@@ -12,6 +12,8 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 // import LoginMediator from "pages/LoginMediator";
 import DesktopView from "pages/DesktopView";
 import AddIDPage from "pages/AddIDPage";
+import TransactionPage from "pages/TransactionPage";
+import ConfirmTransaction from "pages/ConfirmTransaction";
 // import BlockTester from "./pages/BlockTester";
 // import Onboarding from "./pages/Onboarding";
 
@@ -44,8 +46,8 @@ const App = () => {
                 <Route exact component={Main} path="/" />
                 <Route exact component={AddIDPage} path="/addid" />
                 {/* <Route exact component={Qr} path="/qr" /> */}
-                {/* <Route exact component={TransactionInit} path="/Transact" /> */}
-                {/* <Route exact component={Success} path="/success" /> */}
+                <Route exact component={TransactionPage} path="/Transact" />
+                <Route exact component={ConfirmTransaction} path="/confirm" />
                 {/* <Route exact component={Onboarding} path="/ob" /> */}
                 {/* <Route exact component={OB1} path="/ob1" /> */}
                 {/* <Route exact component={OB2} path="/ob2" /> */}
