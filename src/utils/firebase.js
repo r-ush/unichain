@@ -121,8 +121,9 @@ export function verifyCode(verificationUserCode) {
         .confirm(code)
         .then((result) => {
             // User signed in successfully.
-            const { user } = result;
-            console.log("user");
+            const { refreshToken } = result.user;
+            console.log(refreshToken);
+            localStorage.setItem("key", refreshToken);
             // ...
         })
         .catch((error) => {

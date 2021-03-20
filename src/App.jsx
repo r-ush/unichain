@@ -14,6 +14,7 @@ import DesktopView from "pages/DesktopView";
 import AddIDPage from "pages/AddIDPage";
 import TransactionPage from "pages/TransactionPage";
 import ConfirmTransaction from "pages/ConfirmTransaction";
+import ProtectedRoute from "components/ProtectedRoute";
 // import BlockTester from "./pages/BlockTester";
 // import Onboarding from "./pages/Onboarding";
 
@@ -43,11 +44,31 @@ const App = () => {
         <ThemeProvider theme={theme}>
             <Switch>
                 <Route exact component={LoginMediator} path="/login" />
-                <Route exact component={Main} path="/" />
-                <Route exact component={AddIDPage} path="/addid" />
+                <ProtectedRoute
+                    exact
+                    component={Main}
+                    path="/"
+                    redirect="/login"
+                />
+                <ProtectedRoute
+                    exact
+                    component={AddIDPage}
+                    path="/addid"
+                    redirect="/login"
+                />
                 {/* <Route exact component={Qr} path="/qr" /> */}
-                <Route exact component={TransactionPage} path="/Transact" />
-                <Route exact component={ConfirmTransaction} path="/confirm" />
+                <ProtectedRoute
+                    exact
+                    component={TransactionPage}
+                    path="/Transact"
+                    redirect="/login"
+                />
+                <ProtectedRoute
+                    exact
+                    component={ConfirmTransaction}
+                    path="/confirm"
+                    redirect="/login"
+                />
                 {/* <Route exact component={Onboarding} path="/ob" /> */}
                 <Route exact component={OB1} path="/ob1" />
                 <Route exact component={OB2} path="/ob2" />
