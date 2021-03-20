@@ -64,32 +64,32 @@ const AddIDPage = () => {
 
     const [buffer, setBuffer] = useState();
     const [hash, setHash] = useState("");
-    const [tHash, setThash] = useState("");
-    const [ethaddr, setEthaddr] = useState("");
+    const [setThash] = useState("");
+    const [setEthaddr] = useState("");
+
+    const loadWallet = async () => {
+        if (window.ethereum) {
+            await window.ethereum.enable();
+        }
+    };
 
     useEffect(() => {
         loadWallet();
     }, []);
 
     const convertToBuffer = async (reader) => {
-        const buffer = await Buffer.from(reader.result);
-        setBuffer(buffer);
+        const tpbuffer = await Buffer.from(reader.result);
+        setBuffer(tpbuffer);
     };
 
     const captureFile = (event) => {
         event.stopPropagation();
         event.preventDefault();
         const file = event.target.files[0];
-        let reader = new window.FileReader();
+        const reader = new window.FileReader();
         reader.readAsArrayBuffer(file);
         console.log("File Read");
         reader.onloadend = () => convertToBuffer(reader);
-    };
-
-    const loadWallet = async () => {
-        if (window.ethereum) {
-            await window.ethereum.enable();
-        }
     };
 
     const onSubmit = async (event) => {
