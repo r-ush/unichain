@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, makeStyles } from "@material-ui/core";
 import back from "assets/back.svg";
 import uploadIcon from "assets/upload-icon.svg";
+import ipfs from "blockchain/ipfs";
+import web3 from "blockchain/web3";
+import storehash from "blockchain/storehash";
 
 const useStyles = makeStyles({
     root: {
@@ -59,6 +62,56 @@ const useStyles = makeStyles({
 const AddIDPage = () => {
     const c = useStyles();
 
+    const [buffer, setBuffer] = useState();
+    const [hash, setHash] = useState("");
+    const [tHash, setThash] = useState("");
+    const [ethaddr, setEthaddr] = useState("");
+
+    useEffect(() => {
+        loadWallet();
+    }, []);
+
+    const convertToBuffer = async (reader) => {
+        const buffer = await Buffer.from(reader.result);
+        setBuffer(buffer);
+    };
+
+    const captureFile = (event) => {
+        event.stopPropagation();
+        event.preventDefault();
+        const file = event.target.files[0];
+        let reader = new window.FileReader();
+        reader.readAsArrayBuffer(file);
+        console.log("File Read");
+        reader.onloadend = () => convertToBuffer(reader);
+    };
+
+    const loadWallet = async () => {
+        if (window.ethereum) {
+            await window.ethereum.enable();
+        }
+    };
+
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        const accounts = await web3.eth.getAccounts();
+        const ethAddress = await storehash.options.address;
+        setEthaddr(ethAddress);
+        await ipfs.add(buffer, (err, ipfsHash) => {
+            console.log(err, ipfsHash);
+            setHash(ipfsHash[0].hash);
+            storehash.methods.sendHash(hash).send(
+                {
+                    from: accounts[0],
+                },
+                (error, transactionHash) => {
+                    console.log(transactionHash);
+                    setThash(transactionHash);
+                }
+            );
+        });
+    };
+
     return (
         <div className="page">
             <div className={c.loginTop}>
@@ -88,7 +141,7 @@ const AddIDPage = () => {
                             // ref={ref}
                             type="file"
                             accept="image/*"
-                            // onChange={handleChange}
+                            onChange={captureFile}
                         />
                         <img src={uploadIcon} alt="" />
                     </Button>
@@ -98,6 +151,7 @@ const AddIDPage = () => {
                 <Button
                     variant="contained"
                     color="primary"
+                    onClick={onSubmit}
                     className={c.submit}
                 >
                     Submit
