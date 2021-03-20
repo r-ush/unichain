@@ -1,16 +1,17 @@
 import React from "react";
-import { makeStyles, Typography } from "@material-ui/core";
+import { Button, makeStyles, Typography } from "@material-ui/core";
 
-// import desktoplogo from "assets/desktoplogo.svg";
+import desktoplogo from "../assets/desktoplogo.png";
 
 const useStyles = makeStyles({
     root: {
-        height: "100%",
+        height: "100vh",
         width: "100%",
         display: "flex",
         flexDirection: "column",
         placeItems: "center",
-        paddingTop: "200px",
+        // paddingTop: "50px",
+        background: "linear-gradient(179.81deg, #5934EF -23.35%, #1E0291 141%)",
     },
 });
 
@@ -19,23 +20,30 @@ const DesktopView = () => {
 
     return (
         <div className={c.root}>
-            {/* <img src={desktoplogo} alt="" /> */}
-            <Typography style={{ marginTop: "150px" }} variant="h6">
-                Please open the website in PHONE for better experience
+            <img style={{ marginTop: "120px" }} src={desktoplogo} alt="" />
+            <Typography style={{ marginTop: "100px" }} variant="h6">
+                To go ahead
+                <br />
+                - Open the website in mobile view of the browser
+                <br />- install MetaMask wallet
+                <br />- Make sure you have Ethers in Ropsten network in your
+                Metamask wallet.
+                <br />
+                <br />
+                Otherwise click HOME to check out the details about UniChain
+                :&apos; )
             </Typography>
-            <a
+            <Button
+                variant="contained"
                 style={{
-                    marginTop: "150px",
-                    textDecoration: "underline",
-                    cursor: "pointer",
+                    marginTop: "50px",
                 }}
-                variant="h6"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.unichain.tk/"
             >
-                Check us out here
-            </a>
+                HOME
+            </Button>
         </div>
     );
 };

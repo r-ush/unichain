@@ -35,14 +35,19 @@ const App = () => {
         }
     }, [firstTime, history]);
 
-    const width = window.innerWidth;
-    if (width > 500) {
-        return <DesktopView />;
-    }
+    // eslint-disable-next-line consistent-return
+    useEffect(() => {
+        const width = window.innerWidth;
+        if (width > 500) {
+            return history.push("/desktop");
+        }
+        // eslint-disable-next-line
+    }, []);
 
     return (
         <ThemeProvider theme={theme}>
             <Switch>
+                <Route exact component={DesktopView} path="/desktop" />
                 <Route exact component={LoginMediator} path="/login" />
                 <ProtectedRoute
                     exact
@@ -69,12 +74,9 @@ const App = () => {
                     path="/confirm"
                     redirect="/login"
                 />
-                {/* <Route exact component={Onboarding} path="/ob" /> */}
                 <Route exact component={OB1} path="/ob1" />
                 <Route exact component={OB2} path="/ob2" />
                 <Route exact component={OB3} path="/ob3" />
-
-                {/* <Route exact component={BlockTester} path="/test" /> */}
             </Switch>
         </ThemeProvider>
     );
