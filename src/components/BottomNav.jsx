@@ -5,8 +5,8 @@ import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
-import ReceiptRoundedIcon from "@material-ui/icons/ReceiptRounded";
-// import predict from "../assets/predict.svg";
+import HistoryIcon from "@material-ui/icons/History";
+import FolderRoundedIcon from "@material-ui/icons/FolderRounded";
 
 const useStyles = makeStyles({
     root: {
@@ -47,13 +47,13 @@ export default function BottomNav({ setNavValue, navValue }) {
             />
             <BottomNavigationAction
                 className={classes.menuItem}
-                label="Prediction"
-                icon={<ReceiptRoundedIcon />}
+                label="History"
+                icon={<HistoryIcon />}
             />
             <BottomNavigationAction
                 className={classes.menuItem}
-                label="Transaction"
-                icon={<ReceiptRoundedIcon />}
+                label="Identities"
+                icon={<FolderRoundedIcon />}
             />
             <BottomNavigationAction
                 className={classes.menuItem}
