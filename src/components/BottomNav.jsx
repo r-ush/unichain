@@ -22,7 +22,7 @@ const useStyles = makeStyles({
         // borderRadius: "3px",
     },
     menuItem: {
-        color: "#FBFBFB",
+        color: "#8d8d8d",
     },
 });
 

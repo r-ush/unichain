@@ -1,0 +1,210 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable no-nested-ternary */
+import React, { useState } from "react";
+import { Button, makeStyles, Typography } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
+// import profileImg from "../assets/profile-img.png";
+// import recycle from "../assets/recycle.svg";
+import info from "../assets/information.svg";
+// import coin from "../assets/coin.svg";
+// import qrIcon from "../assets/qrIcon.png";
+// import InfoModal from "components/InfoModal";
+
+const useStyles = makeStyles({
+    homeTop: {
+        display: "flex",
+        justifyContent: "space-between",
+        padding: "1.5rem 1rem",
+        marginBottom: "1.5rem",
+        // borderBottom: "1px solid #2B2B2B",
+
+        background:
+            "linear-gradient(359.85deg, rgba(255, 215, 136, 0.51) -12.72%, rgba(99, 124, 255, 0.51) -12.71%, #23A5EE 17.99%, #7673FF 70.25%, #44C6FF 112.72%)",
+    },
+    topLeft: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    name: {
+        fontSize: "20px",
+        lineHeight: "24px",
+        marginLeft: "0.5rem",
+    },
+    homeTopDate: {
+        fontSize: "12px",
+        lineHeight: "12px",
+
+        marginLeft: "0.5rem",
+    },
+    purpletext: { color: "#B251FF" },
+    homeTopIcon: { margin: "0.75rem" },
+    currentValue: {
+        padding: "12px",
+        border: "0.5px solid #3EFFA2",
+        borderRadius: "6px",
+        alignSelf: "center",
+    },
+    balance: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: "1.5rem",
+    },
+    balanceTitle: {
+        fontSize: "24px",
+        lineHeight: "29px",
+    },
+    row: {
+        display: "flex",
+        justifyContent: "space-evenly",
+        width: "100%",
+    },
+    rowSpaceBW: {
+        display: "flex",
+        justifyContent: "space-between",
+        width: "100%",
+        // margin: "0 1rem",
+    },
+    rowNoSpace: {
+        display: "flex",
+        justifyContent: "center",
+        width: "100%",
+    },
+    coinValue: {
+        fontSize: "48px",
+        lineHeight: "58px",
+
+        color: "#FBFBFB",
+    },
+    coinValueRed: {
+        fontSize: "48px",
+        lineHeight: "58px",
+
+        color: "#FF3C3C",
+    },
+    payBtn: {
+        alignSelf: "center",
+        width: "300px",
+        height: "50px",
+        background: "#4464FF",
+        boxShadow: "0px 4px 50px 2px rgba(68, 100, 255, 0.4)",
+        borderRadius: "10px",
+        margin: "42px 0 27px 0",
+        fontSize: "24px",
+    },
+    qrBtn: {
+        height: "72px",
+        width: "72px",
+        borderRadius: "50%",
+        filter: "drop-shadow(0px 5.40984px 36.0656px rgba(62, 255, 162, 0.25))",
+        background: "#3EFFA2",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        position: "absolute",
+        right: "8px",
+        bottom: "70px",
+    },
+});
+
+const Main = () => {
+    const c = useStyles();
+
+    const history = useHistory();
+
+    const [showInfoModal, setInfoModal] = useState(false);
+
+    const toggleInfoModal = () => {
+        setInfoModal(!showInfoModal);
+    };
+
+    const onPayClick = () => {
+        history.push("/qr");
+    };
+
+    return (
+        <div className="page">
+            <div className={c.homeTop}>
+                <div className={c.topLeft}>
+                    <div>
+                        <div className={c.name}>Hello User,</div>
+                        <div className={c.homeTopDate}>20th March, 2021</div>
+                    </div>
+                </div>
+                <div>
+                    <img
+                        onClick={() => {
+                            toggleInfoModal();
+                        }}
+                        className={c.homeTopIcon}
+                        src={info}
+                        alt=""
+                    />
+                    {/* <img className={c.homeTopIcon} src={recycle} alt="" /> */}
+                </div>
+            </div>
+
+            <div className={c.currentValue}>
+                <span>Current GRD price :</span> <b>123.2345 </b>
+                <span>kgCO2</span>
+            </div>
+
+            <div className={c.balance}>
+                <Typography variant="h2" className={c.balanceTitle}>
+                    Your balance
+                </Typography>
+                <div className={c.row}>
+                    <div className={c.rowNoSpace}>
+                        <div style={{ textAlign: "center" }}>
+                            <div className={c.coinValue}>264</div>
+                            <div>GRD Left</div>
+                        </div>
+                        {/* <img src={coin} alt="" /> */}
+                    </div>
+                    <div className={c.rowNoSpace}>
+                        <div style={{ textAlign: "center" }}>
+                            <div className={c.coinValueRed}>54</div>
+                            <div>GRD Spent</div>
+                        </div>
+                        {/* <img src={coin} alt="" /> */}
+                    </div>
+                </div>
+            </div>
+
+            <Button
+                onClick={onPayClick}
+                className={c.payBtn}
+                variant="contained"
+                color="primary"
+            >
+                <b>Pay</b>
+            </Button>
+            <hr style={{ width: "326px", border: "1px solid #2B2B2B" }} />
+
+            <div>
+                <div className={c.rowSpaceBW}>
+                    <div style={{ paddingLeft: "1rem" }}>Recent Contacts</div>
+                    <div
+                        style={{ paddingRight: "1rem" }}
+                        className={c.purpletext}
+                    >
+                        View More
+                    </div>
+                </div>
+            </div>
+
+            {/* {showInfoModal ? (
+                <InfoModal toggleInfoModal={toggleInfoModal} />
+            ) : null}
+            <div onClick={onPayClick} className={c.qrBtn}>
+                <img src={qrIcon} alt="" />
+            </div> */}
+        </div>
+    );
+};
+
+export default Main;
