@@ -9,7 +9,7 @@ import OB2 from "pages/ob2";
 import OB3 from "pages/ob3";
 
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
-// import LoginMediator from "pages/LoginMediator";
+import LoginMediator from "pages/LoginMediator";
 import DesktopView from "pages/DesktopView";
 import AddIDPage from "pages/AddIDPage";
 import TransactionPage from "pages/TransactionPage";
@@ -42,7 +42,7 @@ const App = () => {
     return (
         <ThemeProvider theme={theme}>
             <Switch>
-                {/* <Route exact component={LoginMediator} path="/login" /> */}
+                <Route exact component={LoginMediator} path="/login" />
                 <Route exact component={Main} path="/" />
                 <Route exact component={AddIDPage} path="/addid" />
                 {/* <Route exact component={Qr} path="/qr" /> */}
