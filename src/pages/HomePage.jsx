@@ -12,6 +12,10 @@ import info from "../assets/information.svg";
 // import qrIcon from "../assets/qrIcon.png";
 // import InfoModal from "components/InfoModal";
 
+import passportImg from "../assets/passport-img.svg";
+import authCardArrow from "../assets/arrow-left.svg";
+import lib from "../assets/lib.svg";
+
 const useStyles = makeStyles({
     homeTop: {
         display: "flex",
@@ -85,6 +89,65 @@ const useStyles = makeStyles({
 
         color: "#FFFFFF",
     },
+    identityRow: {
+        display: "flex",
+        flexWrap: "nowrap",
+        whiteSpace: "nowrap",
+        margin: "20px 0",
+        overflow: "scroll",
+        width: "auto",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    idenitityCard: {
+        margin: "0px 12px",
+        background: "linear-gradient(179.81deg, #5934EF -23.35%, #1E0291 141%)",
+        height: "55px",
+        width: "55px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: "50%",
+    },
+    authCard: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        margin: "1rem",
+        padding: "20px",
+        background: "linear-gradient(179.81deg, #5934EF -23.35%, #1E0291 141%)",
+        borderRadius: "4px",
+    },
+    authCardHeading: { fontSize: "20px" },
+    authCardSubHeading: {
+        fontSize: "16px",
+    },
+    authCardArrowBtn: {
+        background: "#FFFFFF",
+        borderRadius: "42.1053px",
+        display: "flex",
+        alignItems: "center",
+        padding: "13.4737px",
+    },
+    helpCard: {
+        background: "#212121",
+        borderRadius: "4px",
+        margin: "1rem",
+        marginTop: "0",
+        padding: "10px",
+    },
+    libHeading: {
+        color: "#fff",
+        fontSize: "16px",
+        fontWeight: "700",
+        marginTop: "6px",
+    },
+    libSubHeading: {
+        color: "rgba(255, 255, 255, 0.75)",
+        fontSize: "12px",
+        marginTop: "6px",
+    },
     payBtn: {
         alignSelf: "center",
         width: "300px",
@@ -130,7 +193,7 @@ const Main = () => {
             <div className={c.homeTop}>
                 <div className={c.topLeft}>
                     <div>
-                        <div className={c.name}>Hello User,</div>
+                        <div className={c.name}>Hello X Æ A-Xii,</div>
                         <div className={c.homeTopDate}>20th March, 2021</div>
                     </div>
                 </div>
@@ -155,7 +218,38 @@ const Main = () => {
             >
                 <b>Pay</b>
             </Button> */}
-            <hr style={{ width: "326px", border: "1px solid #2B2B2B" }} />
+            {/* <hr style={{ width: "326px", border: "1px solid #2B2B2B" }} /> */}
+
+            <div>
+                <div className={c.rowSpaceBW}>
+                    <div
+                        className={c.homeHeading}
+                        style={{ paddingLeft: "1rem" }}
+                    >
+                        Identities added
+                    </div>
+                    <div
+                        style={{ paddingRight: "1rem" }}
+                        className={c.purpletext}
+                    >
+                        View More
+                    </div>
+                </div>
+                <div className={c.identityRow}>
+                    <div className={c.idenitityCard}>
+                        <img src={passportImg} alt="" />
+                    </div>
+                    <div className={c.idenitityCard}>
+                        <img src={passportImg} alt="" />
+                    </div>
+                    <div className={c.idenitityCard}>
+                        <img src={passportImg} alt="" />
+                    </div>
+                    <div className={c.idenitityCard}>
+                        <img src={passportImg} alt="" />
+                    </div>
+                </div>
+            </div>
 
             <div>
                 <div className={c.rowSpaceBW}>
@@ -171,6 +265,40 @@ const Main = () => {
                     >
                         View More
                     </div>
+                </div>
+                <div className={c.authCard}>
+                    <div>
+                        <div className={c.authCardHeading}>CIA</div>{" "}
+                        <div className={c.authCardSubHeading}>
+                            Purpose: Surveillance
+                        </div>
+                        <div className={c.authCardSubHeading}>Virginia, US</div>
+                    </div>
+                    <button type="button" className={c.authCardArrowBtn}>
+                        <img src={authCardArrow} alt="" />
+                    </button>
+                </div>
+                <div className={c.authCard}>
+                    <div>
+                        <div className={c.authCardHeading}>SBI</div>{" "}
+                        <div className={c.authCardSubHeading}>
+                            Purpose: Bank account
+                        </div>
+                        <div className={c.authCardSubHeading}>
+                            New Delhi, India
+                        </div>
+                    </div>
+                    <button type="button" className={c.authCardArrowBtn}>
+                        <img src={authCardArrow} alt="" />
+                    </button>
+                </div>
+            </div>
+
+            <div className={c.helpCard}>
+                <img src={lib} alt="" />
+                <div className={c.libHeading}>Self-help library</div>
+                <div className={c.libSubHeading}>
+                    Form instructions and general policy all at one place
                 </div>
             </div>
 
