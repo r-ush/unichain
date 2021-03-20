@@ -11,9 +11,10 @@ import info from "../assets/information.svg";
 // import coin from "../assets/coin.svg";
 // import qrIcon from "../assets/qrIcon.png";
 // import InfoModal from "components/InfoModal";
+import AuthCard from "../components/AuthCard";
 
 import passportImg from "../assets/passport-img.svg";
-import authCardArrow from "../assets/arrow-left.svg";
+// import authCardArrow from "../assets/arrow-left.svg";
 import lib from "../assets/lib.svg";
 
 const useStyles = makeStyles({
@@ -108,27 +109,6 @@ const useStyles = makeStyles({
         justifyContent: "center",
         alignItems: "center",
         borderRadius: "50%",
-    },
-    authCard: {
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        margin: "1rem",
-        padding: "20px",
-        background: "linear-gradient(179.81deg, #5934EF -23.35%, #1E0291 141%)",
-        borderRadius: "4px",
-    },
-    authCardHeading: { fontSize: "20px" },
-    authCardSubHeading: {
-        fontSize: "16px",
-    },
-    authCardArrowBtn: {
-        background: "#FFFFFF",
-        borderRadius: "42.1053px",
-        display: "flex",
-        alignItems: "center",
-        padding: "13.4737px",
     },
     helpCard: {
         background: "#212121",
@@ -266,32 +246,16 @@ const Main = () => {
                         View More
                     </div>
                 </div>
-                <div className={c.authCard}>
-                    <div>
-                        <div className={c.authCardHeading}>CIA</div>{" "}
-                        <div className={c.authCardSubHeading}>
-                            Purpose: Surveillance
-                        </div>
-                        <div className={c.authCardSubHeading}>Virginia, US</div>
-                    </div>
-                    <button type="button" className={c.authCardArrowBtn}>
-                        <img src={authCardArrow} alt="" />
-                    </button>
-                </div>
-                <div className={c.authCard}>
-                    <div>
-                        <div className={c.authCardHeading}>SBI</div>{" "}
-                        <div className={c.authCardSubHeading}>
-                            Purpose: Bank account
-                        </div>
-                        <div className={c.authCardSubHeading}>
-                            New Delhi, India
-                        </div>
-                    </div>
-                    <button type="button" className={c.authCardArrowBtn}>
-                        <img src={authCardArrow} alt="" />
-                    </button>
-                </div>
+                <AuthCard
+                    org="CIA"
+                    purpose="surveillance"
+                    place="Virginia, US"
+                />
+                <AuthCard
+                    org="SBI"
+                    purpose="Bank account"
+                    place="New Delhi, India"
+                />
             </div>
 
             <div className={c.helpCard}>
