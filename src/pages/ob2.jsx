@@ -50,7 +50,7 @@ const OB2 = () => {
                     alignSelf: "baseline",
                     marginTop: "50px",
                     position: "absolute",
-                    bottom: "200px",
+                    bottom: "150px",
                 }}
                 src={slider2}
                 alt=""
