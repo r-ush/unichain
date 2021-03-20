@@ -153,7 +153,7 @@ const useStyles = makeStyles({
     },
 });
 
-const Main = () => {
+const HomePage = () => {
     const c = useStyles();
 
     // const history = useHistory();
@@ -276,4 +276,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default HomePage;

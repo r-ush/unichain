@@ -11,6 +11,7 @@ import Main from "pages/Main";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 // import LoginMediator from "pages/LoginMediator";
 import DesktopView from "pages/DesktopView";
+import AddIDPage from "pages/AddIDPage";
 // import BlockTester from "./pages/BlockTester";
 // import Onboarding from "./pages/Onboarding";
 
@@ -18,18 +19,6 @@ const theme = createMuiTheme({
     typography: {
         fontFamily: "Nunito Sans",
     },
-    // overrides: {
-    //     MuiMenuItem: {
-    //         root: {
-    //             "&$selected": {
-    //                 backgroundColor: "#fff !important",
-    //             },
-    //         },
-    //         selected: {
-    //             backgroundColor: "red !important",
-    //         },
-    //     },
-    // },
 });
 
 const App = () => {
@@ -53,6 +42,7 @@ const App = () => {
             <Switch>
                 {/* <Route exact component={LoginMediator} path="/login" /> */}
                 <Route exact component={Main} path="/" />
+                <Route exact component={AddIDPage} path="/addid" />
                 {/* <Route exact component={Qr} path="/qr" /> */}
                 {/* <Route exact component={TransactionInit} path="/Transact" /> */}
                 {/* <Route exact component={Success} path="/success" /> */}
