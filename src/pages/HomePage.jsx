@@ -3,8 +3,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-nested-ternary */
 import React, { useState } from "react";
-import { Button, makeStyles, Typography } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
+import { makeStyles } from "@material-ui/core";
+// import { useHistory } from "react-router-dom";
 // import profileImg from "../assets/profile-img.png";
 // import recycle from "../assets/recycle.svg";
 import info from "../assets/information.svg";
@@ -21,7 +21,7 @@ const useStyles = makeStyles({
         // borderBottom: "1px solid #2B2B2B",
 
         background:
-            "linear-gradient(359.85deg, rgba(255, 215, 136, 0.51) -12.72%, rgba(99, 124, 255, 0.51) -12.71%, #23A5EE 17.99%, #7673FF 70.25%, #44C6FF 112.72%)",
+            "linear-gradient(280.73deg, #23A5EE -5.2%, #7673FF 106.92%)",
     },
     topLeft: {
         display: "flex",
@@ -29,15 +29,27 @@ const useStyles = makeStyles({
         alignItems: "center",
     },
     name: {
-        fontSize: "20px",
-        lineHeight: "24px",
-        marginLeft: "0.5rem",
+        fontFamily: "Noto Serif",
+        fontSize: "32px",
+        lineHeight: "140%",
+
+        /* identical to box height, or 45px */
+        letterSpacing: "0.01em",
+
+        /* primary/white */
+        color: "#FBFBFB",
     },
     homeTopDate: {
-        fontSize: "12px",
-        lineHeight: "12px",
+        fontSize: "16px",
+        lineHeight: "140%",
 
-        marginLeft: "0.5rem",
+        /* identical to box height, or 45px */
+        letterSpacing: "0.01em",
+
+        /* primary/white */
+        color: "#FBFBFB",
+
+        // marginLeft: "0.5rem",
     },
     purpletext: { color: "#B251FF" },
     homeTopIcon: { margin: "0.75rem" },
@@ -46,17 +58,6 @@ const useStyles = makeStyles({
         border: "0.5px solid #3EFFA2",
         borderRadius: "6px",
         alignSelf: "center",
-    },
-    balance: {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: "1.5rem",
-    },
-    balanceTitle: {
-        fontSize: "24px",
-        lineHeight: "29px",
     },
     row: {
         display: "flex",
@@ -74,17 +75,15 @@ const useStyles = makeStyles({
         justifyContent: "center",
         width: "100%",
     },
-    coinValue: {
-        fontSize: "48px",
-        lineHeight: "58px",
+    homeHeading: {
+        fontFamily: "Noto Serif",
+        fontStyle: "normal",
+        fontWeight: 400,
+        fontSize: "20px",
+        lineHeight: "24px",
+        letterSpacing: "0.01em",
 
-        color: "#FBFBFB",
-    },
-    coinValueRed: {
-        fontSize: "48px",
-        lineHeight: "58px",
-
-        color: "#FF3C3C",
+        color: "#FFFFFF",
     },
     payBtn: {
         alignSelf: "center",
@@ -114,7 +113,7 @@ const useStyles = makeStyles({
 const Main = () => {
     const c = useStyles();
 
-    const history = useHistory();
+    // const history = useHistory();
 
     const [showInfoModal, setInfoModal] = useState(false);
 
@@ -122,9 +121,9 @@ const Main = () => {
         setInfoModal(!showInfoModal);
     };
 
-    const onPayClick = () => {
-        history.push("/qr");
-    };
+    // const onPayClick = () => {
+    //     history.push("/qr");
+    // };
 
     return (
         <div className="page">
@@ -148,46 +147,24 @@ const Main = () => {
                 </div>
             </div>
 
-            <div className={c.currentValue}>
-                <span>Current GRD price :</span> <b>123.2345 </b>
-                <span>kgCO2</span>
-            </div>
-
-            <div className={c.balance}>
-                <Typography variant="h2" className={c.balanceTitle}>
-                    Your balance
-                </Typography>
-                <div className={c.row}>
-                    <div className={c.rowNoSpace}>
-                        <div style={{ textAlign: "center" }}>
-                            <div className={c.coinValue}>264</div>
-                            <div>GRD Left</div>
-                        </div>
-                        {/* <img src={coin} alt="" /> */}
-                    </div>
-                    <div className={c.rowNoSpace}>
-                        <div style={{ textAlign: "center" }}>
-                            <div className={c.coinValueRed}>54</div>
-                            <div>GRD Spent</div>
-                        </div>
-                        {/* <img src={coin} alt="" /> */}
-                    </div>
-                </div>
-            </div>
-
-            <Button
+            {/* <Button
                 onClick={onPayClick}
                 className={c.payBtn}
                 variant="contained"
                 color="primary"
             >
                 <b>Pay</b>
-            </Button>
+            </Button> */}
             <hr style={{ width: "326px", border: "1px solid #2B2B2B" }} />
 
             <div>
                 <div className={c.rowSpaceBW}>
-                    <div style={{ paddingLeft: "1rem" }}>Recent Contacts</div>
+                    <div
+                        className={c.homeHeading}
+                        style={{ paddingLeft: "1rem" }}
+                    >
+                        Recent authentication
+                    </div>
                     <div
                         style={{ paddingRight: "1rem" }}
                         className={c.purpletext}
