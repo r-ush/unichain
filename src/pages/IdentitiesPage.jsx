@@ -1,4 +1,5 @@
 import React from "react";
+import IdentityCard from "components/IdentityCard";
 import lock from "assets/lock.svg";
 import { Button, makeStyles } from "@material-ui/core";
 
@@ -39,6 +40,9 @@ const IdentitiesPage = () => {
                     <img src={lock} alt="" />
                 </div>
                 <div>Secure and private documents</div>
+            </div>
+            <div>
+                <IdentityCard />
             </div>
             <Button
                 // eslint-disable-next-line no-return-assign

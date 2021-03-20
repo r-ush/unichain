@@ -43,3 +43,46 @@ code {
     height: 100vh;
     width: 100vw;
 }
+
+.confirmPage {
+    background-image: url("./assets/success.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+.confirm-page-head {
+    font-size: 20px;
+    line-height: 140%;
+
+    text-align: center;
+    letter-spacing: 0.01em;
+
+    color: #fbfbfb;
+    padding-top: 550px;
+    /* margin: 08px; */
+}
+
+.border-color {
+    -webkit-border-image: -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            from(#00abeb),
+            to(#fff),
+            color-stop(0.5, #fff),
+            color-stop(0.5, #66cc00)
+        )
+        21 30 30 21 repeat repeat;
+    border-image: -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            from(#00abeb),
+            to(#fff),
+            color-stop(0.5, #fff),
+            color-stop(0.5, #66cc00)
+        )
+        21 30 30 21 repeat repeat;
+}
