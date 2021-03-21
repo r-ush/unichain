@@ -2,7 +2,7 @@
 
 <p align="center">
 <a href="https://www.unichain.tk">
-<img src="https://raw.githubusercontent.com/r-ush/unichain/master/assets/unichain_banner.png" width="400px" alt="UniChain Logo"/>
+<img src="https://raw.githubusercontent.com/r-ush/unichain/master/assets/unichain_banner.png" alt="UniChain Logo"/>
 </a>
 </p>
 
@@ -60,7 +60,7 @@ Tech
 
 <p align="center">
 <a href="https://www.unichain.tk">
-<img src="https://raw.githubusercontent.com/r-ush/unichain/master/assets/tech_stack.png" width="400px" alt="UniChain Tech Stack"/>
+<img src="https://raw.githubusercontent.com/r-ush/unichain/master/assets/tech_stack.png" alt="UniChain Tech Stack"/>
 </a>
 </p>
 
@@ -81,4 +81,4 @@ Tech
 
 ## License
 
-MIT &copy; [UniChain](https://github.com/r-ush/unichain/blob/master/LICENSE)
+MIT &copy; [Aarush Bhat](https://github.com/r-ush/unichain/blob/master/LICENSE)
