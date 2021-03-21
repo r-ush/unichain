@@ -1,30 +1,32 @@
 import web3 from "./web3";
 
-const address = "0x71348821C6Fe35c1De9277038de1004A8321e45f";
+const address = "0xc11D3c76017C4eeA670923f86b465B0ACe02d9Be";
 const abi = [
     {
+        constant: true,
         inputs: [],
         name: "getHash",
         outputs: [
             {
-                internalType: "string",
-                name: "inputdata",
+                name: "x",
                 type: "string",
             },
         ],
+        payable: false,
         stateMutability: "view",
         type: "function",
     },
     {
+        constant: false,
         inputs: [
             {
-                internalType: "string",
-                name: "inputdata",
+                name: "x",
                 type: "string",
             },
         ],
         name: "sendHash",
         outputs: [],
+        payable: false,
         stateMutability: "nonpayable",
         type: "function",
     },

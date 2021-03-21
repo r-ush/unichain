@@ -5,6 +5,7 @@ import uploadIcon from "assets/upload-icon.svg";
 import ipfs from "blockchain/ipfs";
 import web3 from "blockchain/web3";
 import storehash from "blockchain/storehash";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
     root: {
@@ -63,9 +64,10 @@ const AddIDPage = () => {
     const c = useStyles();
 
     const [buffer, setBuffer] = useState();
-    const [hash, setHash] = useState("");
+    const [setHash] = useState("");
     const [setThash] = useState("");
     const [setEthaddr] = useState("");
+    const history = useHistory();
 
     const loadWallet = async () => {
         if (window.ethereum) {
@@ -100,13 +102,14 @@ const AddIDPage = () => {
         await ipfs.add(buffer, (err, ipfsHash) => {
             console.log(err, ipfsHash);
             setHash(ipfsHash[0].hash);
-            storehash.methods.sendHash(hash).send(
+            storehash.methods.sendHash(ipfsHash[0].hash).send(
                 {
                     from: accounts[0],
                 },
                 (error, transactionHash) => {
                     console.log(transactionHash);
                     setThash(transactionHash);
+                    history.push("/confirm");
                 }
             );
         });
