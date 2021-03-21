@@ -64,10 +64,12 @@ const AddIDPage = () => {
     const c = useStyles();
 
     const [buffer, setBuffer] = useState();
-    const [setHash] = useState("");
-    const [setThash] = useState("");
-    const [setEthaddr] = useState("");
+    const [hash, setHash] = useState("");
+    const [tHash, setThash] = useState("");
+    const [ethAddr, setEthaddr] = useState("");
     const history = useHistory();
+
+    console.log(tHash, ethAddr, hash);
 
     const loadWallet = async () => {
         if (window.ethereum) {
